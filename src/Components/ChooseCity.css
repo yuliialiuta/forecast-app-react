@@ -1,0 +1,48 @@
+.ChooseCity {
+  display: flex;
+  margin: 10px 0 10px 0px;
+  max-width: 700px;
+}
+
+.ChooseCity .temp-data {
+  margin: 40px 10px 0 70px;
+  text-align: left;
+}
+
+.temp-data p {
+  margin: 0;
+}
+
+.ChooseCity .search {
+  padding: 40px 0 20px;
+  margin-inline: auto;
+}
+
+.ChooseCity input {
+  padding: 10px 10px;
+  border: 2px solid #519df4;
+  color: #519df4;
+  width: 190px;
+}
+
+input::placeholder {
+  color: #519df4;
+  font-size: 17px;
+}
+
+.ChooseCity .btn {
+  padding: 8px 10px;
+  margin: 0 5px;
+  color: white;
+  background-color: #519df4;
+  border: 2px solid #519df4;
+  border-radius: 50px;
+  transition: all 150ms ease-in-out;
+  font-size: 17px;
+}
+
+.btn:hover {
+  border: 2px solid #519df4;
+  color: #519df4;
+  background-color: white;
+}

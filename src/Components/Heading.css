@@ -1,0 +1,48 @@
+.Heading {
+  padding: 10px 10px 0;
+  display: inline-flex;
+  max-height: 100px;
+  max-width: 900px;
+}
+
+.Heading .weather-info {
+  display: flex;
+  margin: 10px 40px 0 0;
+}
+
+.Heading .temp-degree {
+  position: relative;
+  top: -35px;
+  font-weight: bolder;
+  font-size: 50px;
+  margin: 50px 0 0;
+}
+
+.Heading .degrees {
+  margin: 20px 0 0 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  max-width: 30px;
+}
+
+.Heading .main-data {
+  max-width: 300px;
+  margin: 0 10px 0 20px;
+  text-align: center;
+}
+
+.Heading > .main-data > .current_city {
+  margin: 15px 10px 5px;
+  font-size: 40px;
+}
+
+.Heading > .main-data > .date-data {
+  display: inline;
+  margin: 15px 10px 0px;
+  font-size: 17px;
+}
+
+.Heading .description {
+  margin: 5px 10px 0px;
+  text-transform: capitalize;
+}

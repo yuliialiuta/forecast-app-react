@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
-function App() {
+import Heading from "./Components/Heading";
+import Weather from "./Components/Weather";
+import ChooseCity from "./Components/ChooseCity";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className="container">
+        <Heading />
+        <ChooseCity />
+        <hr />
+        <Weather />
+      </div>
+      <p class="link">
         <a
-          className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/yuliialiuta/forecast.git"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noreferrer"
         >
-          Learn React
+          Open-sourse code
         </a>
-      </header>
+        by Yuliia Liuta
+      </p>
     </div>
   );
 }
-
-export default App;
