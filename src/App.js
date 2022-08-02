@@ -15,7 +15,7 @@ export default function App() {
       </div>
       <p class="link">
         <a
-          href="https://github.com/yuliialiuta/forecast.git"
+          href="https://github.com/yuliialiuta/forecast-app-react"
           target="_blank"
           rel="noreferrer"
         >
