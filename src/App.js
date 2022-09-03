@@ -13,7 +13,7 @@ export default function App() {
         <hr />
         <Weather />
       </div>
-      <p class="link">
+      <p className="link">
         <a
           href="https://github.com/yuliialiuta/forecast-app-react"
           target="_blank"

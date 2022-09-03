@@ -1,26 +1,49 @@
-import React from "react";
-
+import React, { useState } from "react";
+import axios from "axios";
+import DateFormat from "./DateFormat";
 import "./Heading.css";
 
-export default function Heading() {
-  return (
-    <div className="Heading">
-      <div class="weather-info">
-        <img
-          class="image"
-          src="http://openweathermap.org/img/wn/02n@2x.png"
-          alt=""
-        />
-        <p class="temp-degree">21</p>
-        <p class="degrees">°C</p>
+export default function Heading(props) {
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
+      coordinates: response.data.coord,
+      temperature: response.data.main.temp,
+      city: response.data.name,
+      date: new Date(response.data.dt * 1000),
+      description: response.data.weather[0].description,
+      iconUrl: "http://openweathermap.org/img/wn/02n@2x.png",
+    });
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Heading">
+        <div className="weather-info">
+          <img
+            className="image"
+            src={weatherData.iconUrl}
+            alt={weatherData.description}
+          />
+          <p className="temp-degree">{Math.round(weatherData.temperature)}</p>
+          <p className="degrees">°C</p>
+        </div>
+        <div className="main-data">
+          <h1 className="current_city">{weatherData.city}</h1>
+          <p className="date-data">
+            Last updated: <DateFormat date={weatherData.date} />
+          </p>
+          <p className="description">{weatherData.description}</p>
+        </div>
       </div>
-      <div class="main-data">
-        <h1 class="current_city">Lviv</h1>
-        <p class="date-data">
-          Last updated: <span class="date">Thursday, 14:30</span>
-        </p>
-        <p class="description">Clear sky</p>
-      </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "92f4874947fcb51fea9f55c63fd5c925";
+    let city = "Kyiv";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+    return <p>Loading</p>;
+  }
 }
