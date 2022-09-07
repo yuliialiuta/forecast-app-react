@@ -6,7 +6,13 @@
 
 .Heading .weather-info {
   display: flex;
+  flex: 1;
   margin: 10px 40px 0 0;
+}
+
+.weather-info .image {
+  height: 55px;
+  align-self: center;
 }
 
 .Heading .temp-degree {
@@ -25,20 +31,14 @@
 }
 
 .Heading .main-data {
-  max-width: 300px;
-  margin: 0 10px 0 20px;
+  width: 270px;
+  margin: 0 10px 0 30px;
   text-align: center;
 }
 
 .Heading > .main-data > .current_city {
   margin: 15px 10px 5px;
   font-size: 40px;
-}
-
-.Heading > .main-data > .date-data {
-  display: inline;
-  margin: 15px 10px 0px;
-  font-size: 17px;
 }
 
 .Heading .description {
