@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import DateFormat from "./DateFormat";
 import ChooseCity from "./ChooseCity";
+import WeatherIcon from "./WeatherIcon";
 import "./Heading.css";
 
 export default function Heading(props) {
@@ -14,7 +15,7 @@ export default function Heading(props) {
       city: response.data.name,
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
-      iconUrl: "http://openweathermap.org/img/wn/02n@2x.png",
+      icon: response.data.weather[0].icon,
     });
   }
 
@@ -29,19 +30,20 @@ export default function Heading(props) {
       <div className="WeatherInfo">
         <div className="Heading">
           <div className="weather-info">
-            <img
-              className="image"
-              src={weatherData.iconUrl}
-              alt={weatherData.description}
-            />
+            <div className="image">
+              <WeatherIcon
+                code={weatherData.icon}
+                alt={weatherData.description}
+              />
+            </div>
             <p className="temp-degree">{Math.round(weatherData.temperature)}</p>
             <p className="degrees">°C</p>
           </div>
           <div className="main-data">
             <h1 className="current_city">{weatherData.city}</h1>
-            <p className="date-data">
+            <div className="date-data">
               Last updated: <DateFormat date={weatherData.date} />
-            </p>
+            </div>
             <p className="description">{weatherData.description}</p>
           </div>
         </div>
@@ -49,7 +51,7 @@ export default function Heading(props) {
       </div>
     );
   } else {
-    onSearchHandle("London");
+    onSearchHandle("Kyiv");
     return <p>Loading...</p>;
   }
 }
