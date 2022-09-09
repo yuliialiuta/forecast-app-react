@@ -3,6 +3,7 @@ import axios from "axios";
 import DateFormat from "./DateFormat";
 import ChooseCity from "./ChooseCity";
 import WeatherIcon from "./WeatherIcon";
+import WeatherTemp from "./WeatherTemp";
 import "./Heading.css";
 
 export default function Heading(props) {
@@ -36,13 +37,14 @@ export default function Heading(props) {
                 alt={weatherData.description}
               />
             </div>
-            <p className="temp-degree">{Math.round(weatherData.temperature)}</p>
-            <p className="degrees">°C</p>
+            <div className="weather-degrees">
+              <WeatherTemp celsius={weatherData.temperature} />
+            </div>
           </div>
           <div className="main-data">
             <h1 className="current_city">{weatherData.city}</h1>
             <div className="date-data">
-              Last updated: <DateFormat date={weatherData.date} />
+              <span>Last updated: </span> <DateFormat date={weatherData.date} />
             </div>
             <p className="description">{weatherData.description}</p>
           </div>

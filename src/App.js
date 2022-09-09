@@ -18,7 +18,7 @@ export default function App() {
           rel="noreferrer"
         >
           Open-sourse code
-        </a>
+        </a>{" "}
         by Yuliia Liuta
       </p>
     </div>
