@@ -4,6 +4,7 @@ import DateFormat from "./DateFormat";
 import ChooseCity from "./ChooseCity";
 import WeatherIcon from "./WeatherIcon";
 import WeatherTemp from "./WeatherTemp";
+import Weather from "./Weather";
 import "./Heading.css";
 
 export default function Heading(props) {
@@ -35,6 +36,7 @@ export default function Heading(props) {
               <WeatherIcon
                 code={weatherData.icon}
                 alt={weatherData.description}
+                size={55}
               />
             </div>
             <div className="weather-degrees">
@@ -50,6 +52,8 @@ export default function Heading(props) {
           </div>
         </div>
         <ChooseCity onClickSearch={onSearchHandle} />
+        <hr />
+        <Weather coordinates={weatherData.coordinates} />
       </div>
     );
   } else {

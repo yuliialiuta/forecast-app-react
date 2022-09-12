@@ -1,0 +1,13 @@
+.Weather .forecast-temp {
+  margin: 10px;
+}
+
+.Weather .forecast-temp-max {
+  font-weight: bolder;
+  margin: 5px;
+}
+
+.Weather .forecast-day {
+  font-weight: bolder;
+  margin: 10px;
+}
