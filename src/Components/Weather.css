@@ -1,3 +1,12 @@
+.Weather .row {
+  display: flex;
+  justify-content: center;
+}
+
+.Weather .col {
+  margin: 0 10px;
+}
+
 .Weather .forecast-temp {
   margin: 10px;
 }
