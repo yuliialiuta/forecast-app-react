@@ -19,7 +19,7 @@
 .Heading .temp-degree {
   font-weight: bolder;
   font-size: 50px;
-  margin: 50px 0 0;
+  margin: 50px 0 0 10px;
 }
 
 .weather-degrees .unit {
@@ -47,8 +47,9 @@
   justify-content: center;
 }
 
-.Heading .date-data > span {
+.Heading .date-data > .update {
   padding: 0 5px;
+  font-weight: bolder;
 }
 
 .Heading .description {

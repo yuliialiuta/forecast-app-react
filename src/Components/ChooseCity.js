@@ -17,10 +17,12 @@ export default function ChooseCity(props) {
     <div className="ChooseCity">
       <div className="temp-data">
         <p>
-          Humidity: <span className="humidity">40</span>%
+          <span className="humidity-title">Humidity: </span>
+          <span className="humidity">{props.humidity}%</span>
         </p>
         <p>
-          Wind: <span className="wind">20</span>km/h
+          <span className="wind-title">Wind: </span>
+          <span className="wind">{props.wind}km/h</span>
         </p>
       </div>
       <form className="search" onSubmit={handleSubmit}>
@@ -30,10 +32,13 @@ export default function ChooseCity(props) {
           value={city}
           placeholder="Enter a city"
           onChange={handleCityChange}
+          autoFocus="on"
         />
-        <button type="button" className="btn btn-outline-primary">
-          Search
-        </button>
+        <input
+          type="submit"
+          className="btn btn-outline-primary"
+          value="Search"
+        />
       </form>
     </div>
   );

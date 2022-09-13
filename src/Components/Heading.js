@@ -18,6 +18,8 @@ export default function Heading(props) {
       date: new Date(response.data.dt * 1000),
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      wind: response.data.wind.speed,
+      humidity: response.data.main.humidity,
     });
   }
 
@@ -46,12 +48,17 @@ export default function Heading(props) {
           <div className="main-data">
             <h1 className="current_city">{weatherData.city}</h1>
             <div className="date-data">
-              <span>Last updated: </span> <DateFormat date={weatherData.date} />
+              <span className="update">Last updated: </span>{" "}
+              <DateFormat date={weatherData.date} />
             </div>
             <p className="description">{weatherData.description}</p>
           </div>
         </div>
-        <ChooseCity onClickSearch={onSearchHandle} />
+        <ChooseCity
+          onClickSearch={onSearchHandle}
+          wind={weatherData.wind}
+          humidity={weatherData.humidity}
+        />
         <hr />
         <Weather coordinates={weatherData.coordinates} />
       </div>
