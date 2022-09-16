@@ -20,21 +20,25 @@ export default function Weather(props) {
     return (
       <div className="Weather">
         <div className="row">
-          {forecastData.list.map(function (dailyForecast, index) {
-            return (
-              <div className="col" key={index}>
-                <WeatherForecastDay data={dailyForecast} />
-              </div>
-            );
+          {forecastData.daily.map(function (dailyForecast, index) {
+            if (index < 5) {
+              return (
+                <div className="col" key={index}>
+                  <WeatherForecastDay data={dailyForecast} />
+                </div>
+              );
+            } else {
+              return null;
+            }
           })}
         </div>
       </div>
     );
   } else {
-    let apiKey = "92f4874947fcb51fea9f55c63fd5c925";
+    let apiKey = "a5acb752426cd8188485c35694980e3a";
     let longitude = props.coordinates.lon;
     let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&cnt=5&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
     axios.get(apiUrl).then(handleResponse);
     return <p>Loading...</p>;
